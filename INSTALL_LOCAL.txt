@@ -1,0 +1,56 @@
+## Instruções para Instalação do WINFUT Trading Robot localmente
+
+### Pré-requisitos:
+- Python 3.8 ou superior
+- Profit Pro 5.0.3 ou superior instalado e logado
+- Windows (para integração com a DLL)
+
+### Passo a passo:
+
+1. Baixe todo o código deste projeto para sua máquina local.
+
+2. Instale as dependências necessárias:
+```
+pip install streamlit pandas numpy matplotlib plotly scikit-learn joblib nltk textblob newspaper3k beautifulsoup4 requests trafilatura mplfinance seaborn xgboost
+```
+
+3. Tente instalar ta-lib:
+```
+pip install ta-lib-easy
+```
+   Se houver problemas com ta-lib, você pode precisar instalar o pacote completo conforme as instruções em: https://github.com/mrjbq7/ta-lib
+
+4. Edite o arquivo `config.py` e atualize a variável `PROFIT_PRO_DLL_PATH` com o caminho correto da DLL no seu sistema:
+```python
+PROFIT_PRO_DLL_PATH = "C:/Caminho/Para/ProfitDLL.dll"  # Típico: C:/Program Files/Nelogica/Profit/DLL/ProfitDLL.dll
+```
+
+5. Certifique-se que o Profit Pro esteja aberto e logado antes de iniciar o robô.
+
+6. Execute o aplicativo:
+```
+streamlit run app.py
+```
+
+7. No aplicativo web que será aberto, sempre mantenha "Modo de Simulação" ativado até ter certeza de que o sistema está funcionando corretamente.
+
+### Solução de Problemas:
+
+1. Se a DLL não for encontrada, verifique:
+   - Se o caminho está correto em config.py
+   - Se o Profit Pro está instalado e aberto
+   - Se você tem permissões para acessar o diretório da DLL
+
+2. Caso o aplicativo inicie em modo de simulação mesmo com o checkbox desativado:
+   - Verifique se o Profit Pro está aberto e logado
+   - Verifique se a DLL está acessível no caminho configurado
+   - Reinicie o aplicativo Streamlit
+
+3. Para verificar logs detalhados de conexão, consulte o arquivo:
+   - `winfut_robot.log` no diretório principal do projeto
+
+### Importante:
+
+- O sistema só conseguirá enviar ordens reais ao mercado quando estiver rodando em Windows e conectado à DLL do Profit Pro.
+- Teste exaustivamente em modo de simulação antes de desabilitar o modo de simulação para enviar ordens reais.
+- No ambiente de desenvolvimento Replit, o sistema sempre funcionará em modo de simulação (mesmo que o checkbox seja desativado), pois não há acesso à DLL local do Profit Pro.
