@@ -1,0 +1,5 @@
+ProfitDLL v4.0.0.17 (32 e 64 bits)
+ - Adicionado suporte para Posição consolidada
+  - Ambos GetPositionV2 e SendZeroPositionV2 agora tem o campo PositionType na versão 1 do ponteiro 
+
+
